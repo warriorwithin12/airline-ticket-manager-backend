@@ -21,11 +21,17 @@ public class Plane {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     @NonNull
     private int capacity;
 
+    @Column(nullable = false)
     @NonNull
     private String model;
+
+    @Column(nullable = false)
+    @NonNull
+    private String companyOwner;
 
     @OneToMany(mappedBy = "plane")
     private Set<Flight> flights;
