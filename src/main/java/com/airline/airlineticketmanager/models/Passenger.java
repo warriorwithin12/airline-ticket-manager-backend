@@ -7,6 +7,7 @@ import lombok.extern.jackson.Jacksonized;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "PASSENGER")
 @Data
 @NoArgsConstructor @AllArgsConstructor
 @Builder(toBuilder = true)
@@ -15,7 +16,7 @@ import javax.persistence.*;
 public class Passenger {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)

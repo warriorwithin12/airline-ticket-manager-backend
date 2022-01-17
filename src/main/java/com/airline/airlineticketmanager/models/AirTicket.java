@@ -7,12 +7,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.jackson.Jacksonized;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "AIR_TICKET")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +18,8 @@ import javax.persistence.Id;
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AirTicket {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 }

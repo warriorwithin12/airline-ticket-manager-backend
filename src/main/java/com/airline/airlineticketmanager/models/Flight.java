@@ -1,16 +1,14 @@
 package com.airline.airlineticketmanager.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.extern.jackson.Jacksonized;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "FLIGHT")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,13 +18,33 @@ import java.util.Date;
 public class Flight {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 6, unique = true, nullable = false)
+    @NonNull
+    private String flightCode;
+
+    @Column(length = 3)
     private String departure;
+
+    @Column(length = 3)
     private String arrival;
+
+    @Temporal(TemporalType.DATE)
     private Date date;
-    @OneToMany
+
+    @Temporal(TemporalType.TIME)
+    private Date departureTime;
+
+    @Temporal(TemporalType.TIME)
+    private Date arrivalTime;
+
+    @Enumerated(EnumType.STRING)
+    private FlightStatus status;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "plane_id")
     private Plane plane;
-    private int capacity;
+
 }

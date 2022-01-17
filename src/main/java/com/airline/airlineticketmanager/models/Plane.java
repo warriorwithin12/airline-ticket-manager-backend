@@ -4,12 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import lombok.extern.jackson.Jacksonized;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Table(name = "PLANE")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +18,7 @@ import javax.persistence.Id;
 public class Plane {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NonNull
@@ -27,4 +26,11 @@ public class Plane {
 
     @NonNull
     private String model;
+
+    @OneToMany(mappedBy = "plane")
+    private Set<Flight> flights;
+
+    public  void removeFlight(Flight flight){
+        flights.remove(flight);
+    }
 }
