@@ -12,7 +12,8 @@ import org.springframework.context.annotation.Configuration;
 public class DBLoader {
 
     @Bean
-    CommandLineRunner initDatabase(PassengerRepository repository) {
+    CommandLineRunner initDatabase(
+            PassengerRepository repository) {
         return args -> {
             log.info("Preloading " + repository.save(Passenger.builder()
                     .code("11111111L")

@@ -34,9 +34,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/", API_PATH + "/**", "/manage/**")
-            .permitAll()
+            .antMatchers("/", "/manage/**", "/db-console/**")
+                .permitAll()// .hasRole("SYS_ADMIN")
+            .antMatchers(API_PATH + "/**")
+                .permitAll()// .hasRole("API_USER")
             .anyRequest().authenticated()
+        .and()
+            .headers().frameOptions().sameOrigin()// for h2 DataStore
         .and()
             .cors()
         .and()
