@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "FLIGHT")
+@Table(name = "flight")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -43,8 +43,9 @@ public class Flight {
     @Enumerated(EnumType.STRING)
     private FlightStatus status;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "plane_id")
+//    @ManyToOne(optional = false)
+//    @JoinColumn(name = "plane_id")
+    @OneToOne
     private Plane plane;
 
 }

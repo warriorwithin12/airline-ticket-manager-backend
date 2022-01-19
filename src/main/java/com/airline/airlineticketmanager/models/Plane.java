@@ -5,10 +5,9 @@ import lombok.*;
 import lombok.extern.jackson.Jacksonized;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
-@Table(name = "PLANE")
+@Table(name = "plane")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,17 +25,22 @@ public class Plane {
     private int capacity;
 
     @Column(nullable = false)
-    @NonNull
-    private String model;
+    @Enumerated(EnumType.STRING)
+    @Builder.Default
+    private PlaneCapacityType capacityType = PlaneCapacityType.PAX;
 
     @Column(nullable = false)
     @NonNull
-    private String companyOwner;
+    private String model;
 
-    @OneToMany(mappedBy = "plane")
-    private Set<Flight> flights;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Airline owner;
 
-    public  void removeFlight(Flight flight){
-        flights.remove(flight);
-    }
+//    @OneToMany(mappedBy = "plane")
+//    private Set<Flight> flights;
+
+//    public  void removeFlight(Flight flight){
+//        flights.remove(flight);
+//    }
 }

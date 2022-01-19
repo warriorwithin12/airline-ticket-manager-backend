@@ -7,7 +7,7 @@ import lombok.extern.jackson.Jacksonized;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PASSENGER")
+@Table(name = "passenger")
 @Data
 @NoArgsConstructor @AllArgsConstructor
 @Builder(toBuilder = true)

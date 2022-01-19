@@ -10,7 +10,7 @@ import lombok.extern.jackson.Jacksonized;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "AIR_TICKET")
+@Table(name = "air_ticket")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
