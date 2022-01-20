@@ -1,32 +1,32 @@
 package com.airline.airlineticketmanager.controllers;
 
 import com.airline.airlineticketmanager.models.Passenger;
-import com.airline.airlineticketmanager.repositories.PassengerRepository;
+import com.airline.airlineticketmanager.services.PassengerService;
 import com.airline.airlineticketmanager.utils.JsonMergePatchUtils;
 import com.github.fge.jsonpatch.JsonPatchException;
 import com.github.fge.jsonpatch.mergepatch.JsonMergePatch;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "${API_PATH}/passenger")
 @Log4j2
 public class PassengerController {
 
-    private final PassengerRepository passengerRepository;
+    private final PassengerService passengerService;
 
     /**
      * Constructor.
      * Set all autowired fields (new in newer Java versions).
      *
-     * @param passengerRepository The passenger JPA repository to operate with CRUD actions.
+     * @param passengerService The passenger service to operate abstractly with the JPA repository.
      */
-    public PassengerController(PassengerRepository passengerRepository) {
-        this.passengerRepository = passengerRepository;
+    public PassengerController(PassengerService passengerService) {
+        this.passengerService = passengerService;
     }
 
     /**
@@ -36,7 +36,7 @@ public class PassengerController {
      */
     @GetMapping("/list")
     public Iterable<Passenger> getAll(){
-        return this.passengerRepository.findAll();
+        return this.passengerService.getAll();
     }
 
     /**
@@ -47,7 +47,7 @@ public class PassengerController {
      */
     @GetMapping("/{id}")
     public Passenger get(@PathVariable Long id){
-        return this.passengerRepository.findById(id).orElseGet(() -> null);
+        return this.passengerService.getById(id);
     }
 
     /**
@@ -58,12 +58,8 @@ public class PassengerController {
      */
     @PostMapping
     @ResponseBody
-    public Passenger create(@RequestBody Passenger passenger){
-//        if (passengerValidator.validate(passenger)){
-            Passenger newPassenger = this.passengerRepository.saveAndFlush(passenger);
-            log.info("Created passenger: {}", newPassenger.toString());
-            return newPassenger;
-//        }
+    public Passenger create(@Validated(Passenger.class) @RequestBody Passenger passenger){
+        return this.passengerService.create(passenger);
     }
 
     /**
@@ -77,12 +73,10 @@ public class PassengerController {
      */
     @PatchMapping(path = "/{id}", consumes = "application/json-patch+json")
     public Passenger update(@PathVariable Long id, @RequestBody JsonMergePatch jsonMergePatch) throws IOException, JsonPatchException {
-        Optional<Passenger> exists = this.passengerRepository.findById(id);
-        if(exists.isPresent()) {
-            Passenger patched = JsonMergePatchUtils.mergePatch(jsonMergePatch, exists.get(), Passenger.class);
-            patched = this.passengerRepository.saveAndFlush(patched);
-            log.info("Patched Passenger object :: {}", patched.toString());
-            return patched;
+        Passenger exists = this.passengerService.getById(id);
+        if(exists != null) {
+            Passenger patched = JsonMergePatchUtils.mergePatch(jsonMergePatch, exists, Passenger.class);
+            return this.passengerService.update(patched);
         }
         else {
             return null;
@@ -97,12 +91,9 @@ public class PassengerController {
      */
     @DeleteMapping("/{id}")
     public Passenger delete(@PathVariable Long id){
-        Optional<Passenger> passenger = this.passengerRepository.findById(id);
-        if (passenger.isPresent()){
-            Passenger targetToDelete = passenger.get();
-            this.passengerRepository.delete(targetToDelete);
-            log.info("Deleted Passenger object :: {}", targetToDelete.toString());
-            return targetToDelete;
+        Passenger passenger = this.passengerService.delete(id);
+        if (passenger != null){
+            return passenger;
         }
         else {
             throw new NoSuchElementException("Not exist passenger with id: "+ id);

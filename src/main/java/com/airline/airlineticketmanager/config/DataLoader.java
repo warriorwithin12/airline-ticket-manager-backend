@@ -11,10 +11,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 @Component
 @Log4j2
@@ -40,7 +37,8 @@ public class DataLoader implements ApplicationRunner {
         this.planeRepository = planeRepository;
         this.airTicketRepository = airTicketRepository;
         this.airlineRepository = airlineRepository;
-        this.initDBModes = Arrays.asList("create", "create-drop");
+//        this.initDBModes = Arrays.asList("create", "create-drop");
+        this.initDBModes = Collections.singletonList("create-drop");
     }
 
     @Override
@@ -79,7 +77,7 @@ public class DataLoader implements ApplicationRunner {
     private void loadAirlines(){
         log.info("Preloading Airline: " + airlineRepository.save(Airline.builder().company("QA").companyName("Qatar Airways").country("QATAR").countryCode("QT").build()));
         log.info("Preloading Airline: " + airlineRepository.save(Airline.builder().company("SA").companyName("Singapore Airlines").country("SINGAPORE").countryCode("SG").build()));
-        log.info("Preloading Airline: " + airlineRepository.save(Airline.builder().company("ANA").companyName("ANA All Nippon Airways").country("JAPAN").countryCode("JP").build()));
+        log.info("Preloading Airline: " + airlineRepository.save(Airline.builder().company("AN").companyName("ANA All Nippon Airways").country("JAPAN").countryCode("JP").build()));
         log.info("Preloading Airline: " + airlineRepository.save(Airline.builder().company("EM").companyName("Emirates").country("EMIRATES").countryCode("EM").build()));
         log.info("Preloading Airline: " + airlineRepository.save(Airline.builder().company("JA").companyName("Japan Airlines").country("JAPAN").countryCode("JP").build()));
         log.info("Preloading Airline: " + airlineRepository.save(Airline.builder().company("CP").companyName("Cathay Pacific Airways").country("CHINA").countryCode("CH").build()));

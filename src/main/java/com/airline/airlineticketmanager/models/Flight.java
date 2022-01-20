@@ -2,9 +2,11 @@ package com.airline.airlineticketmanager.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -12,14 +14,11 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(toBuilder = true)
+@SuperBuilder(toBuilder = true)
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Flight {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@EqualsAndHashCode(callSuper = true)
+public class Flight extends BaseModel {
 
     @Column(length = 6, unique = true, nullable = false)
     @NonNull
@@ -47,5 +46,8 @@ public class Flight {
 //    @JoinColumn(name = "plane_id")
     @OneToOne
     private Plane plane;
+
+    @OneToMany(mappedBy = "flight")
+    private Collection<Passenger> passengers;
 
 }

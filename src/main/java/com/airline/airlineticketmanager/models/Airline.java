@@ -2,6 +2,7 @@ package com.airline.airlineticketmanager.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
 
 import javax.persistence.*;
@@ -10,16 +11,12 @@ import java.util.List;
 @Entity
 @Table(name = "airline")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
+@NoArgsConstructor @AllArgsConstructor
+@SuperBuilder(toBuilder = true)
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Airline {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@EqualsAndHashCode(callSuper = true)
+public class Airline extends BaseModel {
 
     @Column(nullable = false, unique = true)
     @NonNull
