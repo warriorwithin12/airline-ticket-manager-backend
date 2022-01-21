@@ -24,7 +24,7 @@ spring:
 #        open-in-view: false
 logging:
     level:
-        com.airline.airlineticketmanager: debug
+        com.airline.airlineticketmanager: info
 
 API_PATH: /api
 management.endpoints.web.base-path: /manage

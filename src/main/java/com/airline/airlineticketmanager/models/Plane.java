@@ -20,7 +20,6 @@ public class Plane extends BaseModel {
     @Column(nullable = false)
     private int capacity;
 
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     @Builder.Default
     private PlaneCapacityType capacityType = PlaneCapacityType.PAX;
@@ -31,6 +30,7 @@ public class Plane extends BaseModel {
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
+    @JsonIgnoreProperties("planes")
     private Airline owner;
 
 }

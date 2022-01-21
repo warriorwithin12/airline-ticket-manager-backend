@@ -35,8 +35,10 @@ public class Passenger extends BaseModel {
     private String address;
 
     @ManyToOne
+    @JsonIgnoreProperties("passengers")
     private Flight flight;
 
     @OneToMany(mappedBy = "ticketOwner")
+    @JsonIgnoreProperties("ticketOwner")
     private Collection<AirTicket> boardingTickets;
 }

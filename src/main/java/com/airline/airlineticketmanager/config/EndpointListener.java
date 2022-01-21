@@ -11,6 +11,10 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import java.util.Map;
 
+/**
+ * Listener class to show the exposed REST endpoints in controllers at startup.
+ * Implements ApplicationListener interface to subscribe the onApplicationEvent.
+ */
 @Log4j2
 @Configuration
 public class EndpointListener implements ApplicationListener<ContextRefreshedEvent> {
@@ -18,7 +22,8 @@ public class EndpointListener implements ApplicationListener<ContextRefreshedEve
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         ApplicationContext applicationContext = event.getApplicationContext();
-        RequestMappingHandlerMapping requestMappingHandlerMapping = applicationContext.getBean("requestMappingHandlerMapping", RequestMappingHandlerMapping.class);
+        RequestMappingHandlerMapping requestMappingHandlerMapping =
+                applicationContext.getBean("requestMappingHandlerMapping", RequestMappingHandlerMapping.class);
         Map<RequestMappingInfo, HandlerMethod> map = requestMappingHandlerMapping.getHandlerMethods();
         map.forEach((key, value) -> log.debug("{} {}", key, value));
     }

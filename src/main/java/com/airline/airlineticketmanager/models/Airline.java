@@ -33,6 +33,7 @@ public class Airline extends BaseModel {
     private String countryCode;
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("owner")
     private List<Plane> planes;
 
 }

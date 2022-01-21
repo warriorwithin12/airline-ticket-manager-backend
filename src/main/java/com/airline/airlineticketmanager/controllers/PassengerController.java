@@ -78,8 +78,8 @@ public class PassengerController extends BaseCRUDRestController<Passenger, Long>
      * @throws JsonPatchException If there are patching errors when merging new entity with old one.
      */
     @Override
-    public Passenger update(@PathVariable Long id, @RequestBody JsonMergePatch jsonMergePatch, Class<Passenger> classReference) throws JsonPatchException {
-        return super.update(id, jsonMergePatch, Passenger.class);
+    public Passenger update(@PathVariable Long id, @RequestBody JsonMergePatch jsonMergePatch) throws JsonPatchException {
+        return super.update(id, jsonMergePatch);
     }
 
     /**

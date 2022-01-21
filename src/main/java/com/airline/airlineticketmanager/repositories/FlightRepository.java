@@ -11,8 +11,9 @@ import java.util.Date;
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
     Iterable<Flight> findAllByDate(Date date);
-    Iterable<Flight> findAllByDepartureTimeBetween(Date start, Date end);
-    Iterable<Flight> findAllByArrivalTimeBetween(Date start, Date end);
+    Iterable<Flight> findAllByModifiedDateTime(Date date);
+    Iterable<Flight> findAllByDepartureDateTimeBetween(Date start, Date end);
+    Iterable<Flight> findAllByArrivalDateTimeBetween(Date start, Date end);
 
     @Query("select f from Flight f where f.status = :status")
     Iterable<Flight> findAllByStatus(@Param("status") FlightStatus status);

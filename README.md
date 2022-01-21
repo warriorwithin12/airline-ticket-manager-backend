@@ -26,3 +26,22 @@
   - 1 vuelo asociado
   - Precio/importe
   - Tasas
+  
+ ## DONE list:
+ - [x] **CRUD** (HTTP: Get, Post, Patch, Delete).
+ - [x] **BaseModel** and childs (entities model).
+ - [x] **BaseService** and childs (autowired services to interact with JPA repositories).
+ - [x] **BaseCRUDRestController** and childs.
+ 
+ ## TODO list:
+ - [ ] Testing: 
+    - Unitario
+    - Integraciones
+ - [ ] Securización:
+    - OAuth2
+    - Token simple
+    - Spring security
+    - Google Auth
+- [ ] Add parent entity to REST responses:
+    - Field Success/Unsuccess
+    - Error handling
