@@ -1,10 +1,11 @@
 package com.airline.airlineticketmanager.services;
 
+import com.airline.airlineticketmanager.models.BaseModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public abstract class BaseService<T, ID> {
+public abstract class BaseService<T extends BaseModel, ID> {
 
-    protected JpaRepository<T, ID> repository;
+    JpaRepository<T, ID> repository;
 
     public BaseService(JpaRepository<T, ID> repository) {
         this.repository = repository;
