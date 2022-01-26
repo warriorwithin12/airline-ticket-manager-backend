@@ -19,4 +19,5 @@ public class AirTicketController extends BaseCRUDRestController<AirTicket, Long>
     protected AirTicketService getService() {
         return this.service;
     }
+
 }

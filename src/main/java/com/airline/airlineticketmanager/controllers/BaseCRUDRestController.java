@@ -51,6 +51,7 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID> {
      * @return T entity object.
      */
     @GetMapping("/{id}")
+    @ResponseBody
     T get(@PathVariable ID id){ return this.getService().getById(id);}
 
     /**
@@ -59,6 +60,7 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID> {
      * @return Iterable<T> collection of all elements.
      */
     @GetMapping("/list")
+    @ResponseBody
     Iterable<T> getAll(){ return this.getService().getAll();}
 
     /**
@@ -67,7 +69,8 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID> {
      * @param target New entity element to create.
      * @return T entity created in repository.
      */
-    @PostMapping @ResponseBody
+    @PostMapping
+    @ResponseBody
     T create(@Validated @RequestBody T target){
         return this.getService().create(target);
     }
@@ -83,6 +86,7 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID> {
      * @throws JsonPatchException If fails merge-patch operation.
      */
     @PatchMapping(path = "/{id}", consumes = "application/json-patch+json")
+    @ResponseBody
     T update (@PathVariable ID id, @RequestBody JsonMergePatch patch) throws JsonPatchException {
         T exists = this.getService().getById(id);
         if (exists != null){
@@ -99,7 +103,9 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID> {
      * @return T entity deleted.
      * @throws NoSuchElementException if not exists element T in repository.
      */
-    @DeleteMapping("/{id}") T delete(@PathVariable ID id) throws NoSuchElementException {
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    T delete(@PathVariable ID id) throws NoSuchElementException {
         T deleted = this.getService().delete(id);
         if (deleted != null) return deleted;
         throw new NoSuchElementException("Not exist object with id: "+ id);

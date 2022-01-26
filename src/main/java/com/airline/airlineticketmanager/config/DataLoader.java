@@ -15,6 +15,7 @@ import java.util.*;
 
 @Component
 @Log4j2
+//@Profile("local")
 public class DataLoader implements ApplicationRunner {
 
     @Value("${spring.jpa.hibernate.ddl-auto}")
