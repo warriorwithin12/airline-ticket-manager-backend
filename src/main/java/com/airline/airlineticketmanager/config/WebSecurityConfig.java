@@ -9,6 +9,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -26,6 +27,7 @@ import java.util.Collections;
 @Configuration
 @EnableWebSecurity
 @Log4j2
+@Profile("!local")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${API_PATH}")
@@ -46,6 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .cors()
         .and()
             .csrf().disable();
+        log.error("Loaded config WebSecurityConfig");
     }
 
     @Bean

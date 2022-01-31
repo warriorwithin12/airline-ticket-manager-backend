@@ -5,7 +5,7 @@ import com.airline.airlineticketmanager.repositories.PlaneRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PlaneService extends BaseService<Plane, Long> {
+public class PlaneService extends BaseService<Plane, Long, PlaneRepository> {
 
     public PlaneService(PlaneRepository repository) {
         super(repository);

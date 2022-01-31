@@ -4,18 +4,22 @@ import com.airline.airlineticketmanager.models.Airline;
 import com.airline.airlineticketmanager.models.Passenger;
 import com.airline.airlineticketmanager.models.Plane;
 import com.airline.airlineticketmanager.models.PlaneCapacityType;
+import com.airline.airlineticketmanager.models.auth.Role;
+import com.airline.airlineticketmanager.models.auth.User;
 import com.airline.airlineticketmanager.repositories.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Profile;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 @Component
 @Log4j2
-//@Profile("local")
+@Profile("local")
 public class DataLoader implements ApplicationRunner {
 
     @Value("${spring.jpa.hibernate.ddl-auto}")
@@ -27,28 +31,51 @@ public class DataLoader implements ApplicationRunner {
     private final PlaneRepository planeRepository;
     private final AirTicketRepository airTicketRepository;
     private final AirlineRepository airlineRepository;
+    private final RoleRepository roleRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public DataLoader(PassengerRepository passengerRepository,
                       FlightRepository flightRepository,
                       PlaneRepository planeRepository,
                       AirTicketRepository airTicketRepository,
-                      AirlineRepository airlineRepository) {
+                      AirlineRepository airlineRepository, RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.passengerRepository = passengerRepository;
         this.flightRepository = flightRepository;
         this.planeRepository = planeRepository;
         this.airTicketRepository = airTicketRepository;
         this.airlineRepository = airlineRepository;
-//        this.initDBModes = Arrays.asList("create", "create-drop");
-        this.initDBModes = Collections.singletonList("create-drop");
+        this.roleRepository = roleRepository;
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.initDBModes = Arrays.asList("create", "create-drop");
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         if (dbMode != null && initDBModes.contains(dbMode)) {
+            this.createUsers();
             this.loadPassengers();
             this.loadAirlines();
             this.loadPlanes();
         }
+    }
+
+    private void createUsers(){
+        Role admin = roleRepository.save(Role.builder().name("ADMIN").build());
+        Role user = roleRepository.save(Role.builder().name("USER").build());
+        log.info("Created Role:" + admin);
+        log.info("Created Role:" + user);
+        log.info("Created user:" + userRepository.save(User.builder()
+                .username("admin")
+                .password(passwordEncoder.encode("secret"))
+                .roles(Collections.singleton(admin))
+                .build()));
+        log.info("Created user:" + userRepository.save(User.builder()
+                .username("user1")
+                .password(passwordEncoder.encode("secret"))
+                .roles(Collections.singleton(user))
+                .build()));
     }
 
     private void loadPassengers(){

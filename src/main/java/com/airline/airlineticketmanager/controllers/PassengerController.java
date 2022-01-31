@@ -1,6 +1,7 @@
 package com.airline.airlineticketmanager.controllers;
 
 import com.airline.airlineticketmanager.models.Passenger;
+import com.airline.airlineticketmanager.repositories.PassengerRepository;
 import com.airline.airlineticketmanager.services.PassengerService;
 import com.github.fge.jsonpatch.JsonPatchException;
 import com.github.fge.jsonpatch.mergepatch.JsonMergePatch;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "${API_PATH}/passenger")
 @Log4j2
-public class PassengerController extends BaseCRUDRestController<Passenger, Long>{
+public class PassengerController extends BaseCRUDRestController<Passenger, Long, PassengerRepository>{
 
     private final PassengerService passengerService;
 

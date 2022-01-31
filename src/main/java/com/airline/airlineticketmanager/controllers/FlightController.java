@@ -1,13 +1,14 @@
 package com.airline.airlineticketmanager.controllers;
 
 import com.airline.airlineticketmanager.models.Flight;
+import com.airline.airlineticketmanager.repositories.FlightRepository;
 import com.airline.airlineticketmanager.services.FlightService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "${API_PATH}/flight")
-public class FlightController extends BaseCRUDRestController<Flight, Long> {
+public class FlightController extends BaseCRUDRestController<Flight, Long, FlightRepository> {
 
     private final FlightService service;
 

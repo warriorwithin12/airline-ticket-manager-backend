@@ -6,6 +6,7 @@ import com.airline.airlineticketmanager.utils.JsonMergePatchUtils;
 import com.github.fge.jsonpatch.JsonPatchException;
 import com.github.fge.jsonpatch.mergepatch.JsonMergePatch;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ import java.util.NoSuchElementException;
  */
 @Log4j2
 @RestController
-public abstract class BaseCRUDRestController<T extends BaseModel, ID> {
+public abstract class BaseCRUDRestController<T extends BaseModel, ID, R extends JpaRepository<T, ID>> {
 
     private final Class<T> currentEntityChildClass;
 
@@ -42,7 +43,7 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID> {
      *
      * @return BaseService reference.
      */
-    protected abstract BaseService<T, ID> getService();
+    protected abstract BaseService<T, ID, R> getService();
 
     /**
      * Return single entity by it's id.
