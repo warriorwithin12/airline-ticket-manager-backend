@@ -3,13 +3,16 @@ package com.airline.airlineticketmanager.controllers;
 import com.airline.airlineticketmanager.models.auth.User;
 import com.airline.airlineticketmanager.services.UserService;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.InvalidAttributeValueException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -26,11 +29,11 @@ public class AuthenticationController {
     }
 
     @PostMapping("/login")
-    User login(Authentication authentication){
+    public User login(Authentication authentication){
         return this.service.getUserByUserName(authentication.getName());
     }
 
-    @GetMapping("/logout")
+    @PostMapping("/logout")
     @ExceptionHandler(AuthenticationCredentialsNotFoundException.class)
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -45,5 +48,15 @@ public class AuthenticationController {
         response.setStatus(HttpServletResponse.SC_ACCEPTED);
         response.setContentType("application/json");
         response.getWriter().write("User logout.");
+    }
+
+    @PostMapping("/register")
+    @ExceptionHandler(InvalidAttributeValueException.class)
+    @ResponseStatus(HttpStatus.CREATED)
+    public User register(@Validated User newUser) throws InvalidAttributeValueException {
+        if (newUser != null){
+            return this.service.create(newUser);
+        }
+        throw new InvalidAttributeValueException("User object cannot be null");
     }
 }

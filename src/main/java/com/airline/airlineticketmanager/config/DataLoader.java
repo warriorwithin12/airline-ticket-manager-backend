@@ -5,6 +5,7 @@ import com.airline.airlineticketmanager.models.Passenger;
 import com.airline.airlineticketmanager.models.Plane;
 import com.airline.airlineticketmanager.models.PlaneCapacityType;
 import com.airline.airlineticketmanager.models.auth.Role;
+import com.airline.airlineticketmanager.models.auth.RoleValue;
 import com.airline.airlineticketmanager.models.auth.User;
 import com.airline.airlineticketmanager.repositories.*;
 import lombok.extern.log4j.Log4j2;
@@ -62,11 +63,11 @@ public class DataLoader implements ApplicationRunner {
     }
 
     private void createUsers(){
-        Role admin = roleRepository.save(Role.builder().name("ROLE_ADMIN").build());
-        Role user = roleRepository.save(Role.builder().name("ROLE_USER").build());
-        Role api = roleRepository.save(Role.builder().name("ROLE_API").build());
-        Role apiRead = roleRepository.save(Role.builder().name("ROLE_API_READ").build());
-        Role apiWrite = roleRepository.save(Role.builder().name("ROLE_API_WRITE").build());
+        Role admin = roleRepository.save(Role.builder().name(RoleValue.ROLE_ADMIN).build());
+        Role user = roleRepository.save(Role.builder().name(RoleValue.ROLE_USER).build());
+        Role api = roleRepository.save(Role.builder().name(RoleValue.ROLE_API).build());
+        Role apiRead = roleRepository.save(Role.builder().name(RoleValue.ROLE_API_READ).build());
+        Role apiWrite = roleRepository.save(Role.builder().name(RoleValue.ROLE_API_WRITE).build());
         log.info("Created Role:" + admin);
         log.info("Created Role:" + user);
         log.info("Created Role:" + api);
@@ -74,31 +75,37 @@ public class DataLoader implements ApplicationRunner {
         log.info("Created Role:" + apiWrite);
         log.info("Created user:" + userRepository.save(User.builder()
                 .username("admin")
+                .email("admin@sample.com")
                 .password(passwordEncoder.encode("secret"))
                 .roles(Collections.singleton(admin))
                 .build()));
         log.info("Created user:" + userRepository.save(User.builder()
                 .username("user")
+                .email("user@sample.com")
                 .password(passwordEncoder.encode("secret"))
                 .roles(Collections.singleton(user))
                 .build()));
         log.info("Created user:" + userRepository.save(User.builder()
                 .username("api")
+                .email("api@sample.com")
                 .password(passwordEncoder.encode("secret"))
                 .roles(Collections.singleton(api))
                 .build()));
         log.info("Created user:" + userRepository.save(User.builder()
                 .username("apiReader")
+                .email("apireader@sample.com")
                 .password(passwordEncoder.encode("secret"))
                 .roles(Collections.singleton(apiRead))
                 .build()));
         log.info("Created user:" + userRepository.save(User.builder()
                 .username("apiModifier")
+                .email("apimodifier@sample.com")
                 .password(passwordEncoder.encode("secret"))
                 .roles(Collections.singleton(apiWrite))
                 .build()));
         log.info("Created user:" + userRepository.save(User.builder()
                 .username("apiFull")
+                .email("apifull@sample.com")
                 .password(passwordEncoder.encode("secret"))
                 .roles(new HashSet<>(Arrays.asList(apiRead, apiWrite)))
                 .build()));

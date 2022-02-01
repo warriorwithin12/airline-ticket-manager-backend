@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
@@ -24,7 +22,9 @@ import java.util.Collection;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Role extends BaseModel {
 
-    private String name;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private RoleValue name;
 
     @ManyToMany(mappedBy = "roles")
     @JsonIgnoreProperties("roles")
