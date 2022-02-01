@@ -18,12 +18,15 @@ spring:
 #            jwt:
 #                issuer-uri: http://localhost:8080/auth/realms/SpringBootKeycloak
 #                jwk-set-uri: http://localhost:8080/auth/realms/SpringBootKeycloak/protocol/openid-connect/certs
-
 logging:
     level:
         com.airline.airlineticketmanager: info
 #        com.airline.airlineticketmanager.config: debug
 
+# App Properties
+jwtCookieName: atmb
+jwtSecret: atmbSecretKey
+jwtExpirationMs: 86400000
 API_PATH: /api
 management.endpoints.web.base-path: /manage
 server.error.include-stacktrace: never

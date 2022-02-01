@@ -13,4 +13,10 @@ public class UserService extends BaseService<User, Long, UserRepository> {
     public User getUserByUserName(String username){
         return this.repository.findByUsername(username);
     }
+    public boolean existsByUsername(String username) {
+        return this.repository.existsByUsername(username);
+    }
+    public boolean existsByEmail(String email){
+        return this.repository.existsByEmail(email)
+;    }
 }
