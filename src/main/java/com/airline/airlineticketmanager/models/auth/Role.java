@@ -27,5 +27,6 @@ public class Role extends BaseModel {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
+    @JsonIgnoreProperties("roles")
     private Collection<User> users;
 }

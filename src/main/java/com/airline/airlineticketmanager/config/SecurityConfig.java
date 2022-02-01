@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -65,12 +66,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/", "/manage/**", "/db-console/**")
-                .permitAll()// .hasRole("SYS_ADMIN")
-            .antMatchers(API_PATH + "/**")
-//                .hasAnyRole("ADMIN","USER")
-                .hasRole("ADMIN")
-                .anyRequest().authenticated()
+                .antMatchers("/", "/manage/**", "/db-console/**")
+            .permitAll()
+                .antMatchers("/auth/**")
+            .permitAll()
+                .antMatchers(HttpMethod.GET, API_PATH + "/**").hasAnyRole("ADMIN", "API_READ", "API_WRITE")
+                .antMatchers(HttpMethod.POST, API_PATH + "/**").hasAnyRole("ADMIN", "API_WRITE")
+                .antMatchers(HttpMethod.PATCH, API_PATH + "/**").hasAnyRole("ADMIN", "API_WRITE")
+                .antMatchers(HttpMethod.DELETE, API_PATH + "/**").hasAnyRole("ADMIN", "API_WRITE")
+//                .antMatchers(API_PATH + "/**").hasRole("ADMIN")
+            .anyRequest().authenticated()
         .and()
             .httpBasic().authenticationEntryPoint(authenticationEntryPoint)
         .and()

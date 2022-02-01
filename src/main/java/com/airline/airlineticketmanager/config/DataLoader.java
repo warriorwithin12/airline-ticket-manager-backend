@@ -62,19 +62,45 @@ public class DataLoader implements ApplicationRunner {
     }
 
     private void createUsers(){
-        Role admin = roleRepository.save(Role.builder().name("ADMIN").build());
-        Role user = roleRepository.save(Role.builder().name("USER").build());
+        Role admin = roleRepository.save(Role.builder().name("ROLE_ADMIN").build());
+        Role user = roleRepository.save(Role.builder().name("ROLE_USER").build());
+        Role api = roleRepository.save(Role.builder().name("ROLE_API").build());
+        Role apiRead = roleRepository.save(Role.builder().name("ROLE_API_READ").build());
+        Role apiWrite = roleRepository.save(Role.builder().name("ROLE_API_WRITE").build());
         log.info("Created Role:" + admin);
         log.info("Created Role:" + user);
+        log.info("Created Role:" + api);
+        log.info("Created Role:" + apiRead);
+        log.info("Created Role:" + apiWrite);
         log.info("Created user:" + userRepository.save(User.builder()
                 .username("admin")
                 .password(passwordEncoder.encode("secret"))
                 .roles(Collections.singleton(admin))
                 .build()));
         log.info("Created user:" + userRepository.save(User.builder()
-                .username("user1")
+                .username("user")
                 .password(passwordEncoder.encode("secret"))
                 .roles(Collections.singleton(user))
+                .build()));
+        log.info("Created user:" + userRepository.save(User.builder()
+                .username("api")
+                .password(passwordEncoder.encode("secret"))
+                .roles(Collections.singleton(api))
+                .build()));
+        log.info("Created user:" + userRepository.save(User.builder()
+                .username("apiReader")
+                .password(passwordEncoder.encode("secret"))
+                .roles(Collections.singleton(apiRead))
+                .build()));
+        log.info("Created user:" + userRepository.save(User.builder()
+                .username("apiModifier")
+                .password(passwordEncoder.encode("secret"))
+                .roles(Collections.singleton(apiWrite))
+                .build()));
+        log.info("Created user:" + userRepository.save(User.builder()
+                .username("apiFull")
+                .password(passwordEncoder.encode("secret"))
+                .roles(new HashSet<>(Arrays.asList(apiRead, apiWrite)))
                 .build()));
     }
 

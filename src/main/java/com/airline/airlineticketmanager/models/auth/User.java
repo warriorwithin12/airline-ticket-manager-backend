@@ -1,6 +1,7 @@
 package com.airline.airlineticketmanager.models.auth;
 
 import com.airline.airlineticketmanager.models.BaseModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -23,6 +24,8 @@ public class User extends BaseModel {
     @Column(nullable = false, unique = true)
     private String username;
 
+    @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -32,6 +35,7 @@ public class User extends BaseModel {
         inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     @Builder.Default
+    @JsonIgnoreProperties("users")
     private Set<Role> roles = new HashSet<>();
 
     @Builder.Default
