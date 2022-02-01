@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -21,6 +22,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true) // enables @PreAuthorize @PostAuthorize
 @Log4j2
 @Profile("local")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -57,10 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication().dataSource(dataSource);
         auth.userDetailsService(userDetailsService());
         auth.authenticationProvider(authenticationProvider());
-//        auth.inMemoryAuthentication()
-//                .withUser("user1")
-//                .password(passwordEncoder().encode("user1Pass"))
-//                .authorities("ROLE_USER");
     }
 
     @Override
