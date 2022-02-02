@@ -1,6 +1,5 @@
 package com.airline.airlineticketmanager.controllers;
 
-import com.airline.airlineticketmanager.models.auth.MyUserDetails;
 import com.airline.airlineticketmanager.models.auth.Role;
 import com.airline.airlineticketmanager.models.auth.RoleValue;
 import com.airline.airlineticketmanager.models.auth.User;
@@ -21,6 +20,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,7 +54,7 @@ public class AuthenticationController {
         Authentication authentication = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        MyUserDetails userDetails = (MyUserDetails) authentication.getPrincipal();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
         List<String> roles = userDetails.getAuthorities().stream()
             .map(GrantedAuthority::getAuthority)

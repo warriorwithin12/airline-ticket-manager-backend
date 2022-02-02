@@ -10,7 +10,6 @@ import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Table(name = "roles")
@@ -25,8 +24,4 @@ public class Role extends BaseModel {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private RoleValue name;
-
-    @ManyToMany(mappedBy = "roles")
-    @JsonIgnoreProperties("roles")
-    private Collection<User> users;
 }

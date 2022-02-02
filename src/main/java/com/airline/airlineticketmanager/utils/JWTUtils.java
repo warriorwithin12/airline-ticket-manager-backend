@@ -1,10 +1,10 @@
 package com.airline.airlineticketmanager.utils;
 
-import com.airline.airlineticketmanager.models.auth.MyUserDetails;
 import io.jsonwebtoken.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.WebUtils;
 
@@ -34,7 +34,7 @@ public class JWTUtils {
         }
     }
 
-    public ResponseCookie generateJwtCookie(MyUserDetails userPrincipal) {
+    public ResponseCookie generateJwtCookie(UserDetails userPrincipal) {
         String jwt = generateTokenFromUsername(userPrincipal.getUsername());
         return ResponseCookie.from(jwtCookie, jwt).path("/api").maxAge(24 * 60 * 60).httpOnly(true).build();
     }
