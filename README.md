@@ -32,6 +32,8 @@
  - [x] **BaseModel** and childs (entities model).
  - [x] **BaseService** and childs (autowired services to interact with JPA repositories).
  - [x] **BaseCRUDRestController** and childs.
+ - [x] **Java Token authentication** (in jwt-auth branch)
+ - [x] **Spring security**. User role based authentications with JDBC implementation.
  
  ## TODO list:
  - [ ] Testing: 
@@ -39,8 +41,6 @@
     - Integraciones
  - [ ] Securización:
     - OAuth2
-    - Token simple
-    - Spring security
     - Google Auth
 - [ ] Add parent entity to REST responses:
     - Field Success/Unsuccess
