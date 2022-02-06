@@ -63,11 +63,11 @@ public class DataLoader implements ApplicationRunner {
     }
 
     private void createUsers(){
-        Role admin = roleRepository.save(Role.builder().name(RoleValue.ROLE_ADMIN).build());
-        Role user = roleRepository.save(Role.builder().name(RoleValue.ROLE_USER).build());
-        Role api = roleRepository.save(Role.builder().name(RoleValue.ROLE_API).build());
-        Role apiRead = roleRepository.save(Role.builder().name(RoleValue.ROLE_API_READ).build());
-        Role apiWrite = roleRepository.save(Role.builder().name(RoleValue.ROLE_API_WRITE).build());
+        Role admin = roleRepository.save(Role.builder().name(RoleValue.ROLE_ADMIN.getName()).build());
+        Role user = roleRepository.save(Role.builder().name(RoleValue.ROLE_USER.getName()).build());
+        Role api = roleRepository.save(Role.builder().name(RoleValue.ROLE_API.getName()).build());
+        Role apiRead = roleRepository.save(Role.builder().name(RoleValue.ROLE_API_READ.getName()).build());
+        Role apiWrite = roleRepository.save(Role.builder().name(RoleValue.ROLE_API_WRITE.getName()).build());
         log.info("Created Role:" + admin);
         log.info("Created Role:" + user);
         log.info("Created Role:" + api);

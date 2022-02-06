@@ -22,6 +22,5 @@ import javax.persistence.*;
 public class Role extends BaseModel {
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private RoleValue name;
+    private String name;
 }
