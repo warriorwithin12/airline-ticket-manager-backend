@@ -10,7 +10,7 @@ spring:
     jpa:
         database-platform: org.hibernate.dialect.MySQL8Dialect
         hibernate:
-            ddl-auto: create
+            ddl-auto: update
         show-sql: false
 #    security:
 #      oauth2:
@@ -23,10 +23,12 @@ logging:
         com.airline.airlineticketmanager: info
 #        com.airline.airlineticketmanager.config: debug
 
-# App Properties
+# Custom App Properties
+API_PATH: /api
+AUTH_PATH: /auth
+management.endpoints.web.base-path: /manage
+server.error.include-stacktrace: never
+authoritiesByUsernameQuery: select u.username, r.name from users u inner join user_roles ur on ur.user_id = u.id and u.username = ? inner join roles r on r.id = ur.role_id
 jwtCookieName: atmb
 jwtSecret: atmbSecretKey
 jwtExpirationMs: 86400000
-API_PATH: /api
-management.endpoints.web.base-path: /manage
-server.error.include-stacktrace: never

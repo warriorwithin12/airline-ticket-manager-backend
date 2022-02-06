@@ -33,6 +33,12 @@ logging:
     level:
         com.airline.airlineticketmanager: info
 
+# Custom App Properties
 API_PATH: /api
+AUTH_PATH: /auth
 management.endpoints.web.base-path: /manage
 server.error.include-stacktrace: never
+authoritiesByUsernameQuery: select u.username, r.name from users u inner join user_roles ur on ur.user_id = u.id and u.username = ? inner join roles r on r.id = ur.role_id
+jwtCookieName: atmb
+jwtSecret: atmbSecretKey
+jwtExpirationMs: 86400000

@@ -1,12 +1,14 @@
 package com.airline.airlineticketmanager.controllers;
 
 import com.airline.airlineticketmanager.models.BaseModel;
+import com.airline.airlineticketmanager.models.auth.payloads.MessageResponse;
 import com.airline.airlineticketmanager.services.BaseService;
 import com.airline.airlineticketmanager.utils.JsonMergePatchUtils;
 import com.github.fge.jsonpatch.JsonPatchException;
 import com.github.fge.jsonpatch.mergepatch.JsonMergePatch;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,7 +41,7 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID, R extends 
     /**
      * Get the service bean reference.
      * Child subclass of BaseCRUDRestController needs to override and
-     * returns it's own implementation of service (ex: PassengerService).
+     * returns its own implementation of service (ex: PassengerService).
      *
      * @return BaseService reference.
      */
@@ -52,7 +54,6 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID, R extends 
      * @return T entity object.
      */
     @GetMapping("/{id}")
-    @ResponseBody
     T get(@PathVariable ID id){ return this.getService().getById(id);}
 
     /**
@@ -61,7 +62,6 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID, R extends 
      * @return Iterable<T> collection of all elements.
      */
     @GetMapping("/list")
-    @ResponseBody
     Iterable<T> getAll(){ return this.getService().getAll();}
 
     /**
@@ -71,7 +71,6 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID, R extends 
      * @return T entity created in repository.
      */
     @PostMapping
-    @ResponseBody
     T create(@Validated @RequestBody T target){
         return this.getService().create(target);
     }
@@ -87,7 +86,6 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID, R extends 
      * @throws JsonPatchException If fails merge-patch operation.
      */
     @PatchMapping(path = "/{id}", consumes = "application/json-patch+json")
-    @ResponseBody
     T update (@PathVariable ID id, @RequestBody JsonMergePatch patch) throws JsonPatchException {
         T exists = this.getService().getById(id);
         if (exists != null){
@@ -101,14 +99,13 @@ public abstract class BaseCRUDRestController<T extends BaseModel, ID, R extends 
      * Delete an element of type T specified by ID.
      *
      * @param id ID identification field of entity,
-     * @return T entity deleted.
+     * @return ResponseEntity.OK entity deleted.
      * @throws NoSuchElementException if not exists element T in repository.
      */
     @DeleteMapping("/{id}")
-    @ResponseBody
-    T delete(@PathVariable ID id) throws NoSuchElementException {
+    ResponseEntity<?> delete(@PathVariable ID id) throws NoSuchElementException {
         T deleted = this.getService().delete(id);
-        if (deleted != null) return deleted;
+        if (deleted != null) return ResponseEntity.ok(new MessageResponse("Entity deleted successfully."));
         throw new NoSuchElementException("Not exist object with id: "+ id);
     }
 }

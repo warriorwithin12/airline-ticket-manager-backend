@@ -1,13 +1,12 @@
 package com.airline.airlineticketmanager.controllers;
 
 import com.airline.airlineticketmanager.models.auth.Role;
-import com.airline.airlineticketmanager.models.auth.RoleValue;
 import com.airline.airlineticketmanager.models.auth.User;
 import com.airline.airlineticketmanager.models.auth.payloads.LoginRequest;
 import com.airline.airlineticketmanager.models.auth.payloads.MessageResponse;
 import com.airline.airlineticketmanager.models.auth.payloads.SignupRequest;
 import com.airline.airlineticketmanager.models.auth.payloads.UserInfoResponse;
-import com.airline.airlineticketmanager.repositories.RoleRepository;
+import com.airline.airlineticketmanager.services.RoleService;
 import com.airline.airlineticketmanager.services.UserService;
 import com.airline.airlineticketmanager.utils.JWTUtils;
 import lombok.extern.log4j.Log4j2;
@@ -31,19 +30,19 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "/auth")
+@RequestMapping(path = "${AUTH_PATH}")
 @Log4j2
 public class AuthenticationController {
 
     private final UserService service;
-    private final RoleRepository roleRepository;
+    private final RoleService roleService;
     private final AuthenticationManager authenticationManager;
     private final PasswordEncoder encoder;
     private final JWTUtils jwtUtils;
 
-    public AuthenticationController(UserService service, RoleRepository roleRepository, AuthenticationManager authenticationManager, PasswordEncoder encoder, JWTUtils jwtUtils) {
+    public AuthenticationController(UserService service, RoleService roleService, AuthenticationManager authenticationManager, PasswordEncoder encoder, JWTUtils jwtUtils) {
         this.service = service;
-        this.roleRepository = roleRepository;
+        this.roleService = roleService;
         this.authenticationManager = authenticationManager;
         this.encoder = encoder;
         this.jwtUtils = jwtUtils;
@@ -90,7 +89,7 @@ public class AuthenticationController {
             .password(encoder.encode(signUpRequest.getPassword()))
             .build();
         Set<String> strRoles = signUpRequest.getRole();
-        Set<Role> roles = strRoles.stream().map(role -> roleRepository.findByName(RoleValue.valueOf(role))).collect(Collectors.toSet());
+        Set<Role> roles = strRoles.stream().map(roleService::getRoleByName).collect(Collectors.toSet());
         user.setRoles(roles);
         service.create(user);
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));

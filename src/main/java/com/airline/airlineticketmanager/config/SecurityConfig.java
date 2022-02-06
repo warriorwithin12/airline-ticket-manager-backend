@@ -1,5 +1,6 @@
 package com.airline.airlineticketmanager.config;
 
+import com.airline.airlineticketmanager.models.auth.RoleValue;
 import com.airline.airlineticketmanager.services.UserDetailServiceImpl;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -36,6 +37,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${API_PATH}")
     private String API_PATH;
 
+    @Value("${AUTH_PATH}")
+    private String AUTH;
+
+    @Value("${authoritiesByUsernameQuery}")
+    private String authoritiesByUsernameQuery;
+
     @Autowired
     private DataSource dataSource;
 
@@ -64,12 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
-            .authoritiesByUsernameQuery(
-                "select u.username, r.name " +
-                "from users u " +
-                "inner join user_roles ur on ur.user_id = u.id and u.username = ? " +
-                "inner join roles r on r.id = ur.role_id"
-            );
+            .authoritiesByUsernameQuery(this.authoritiesByUsernameQuery);
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
@@ -78,13 +80,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/", "/manage/**", "/db-console/**")
             .permitAll()
-                .antMatchers("/auth/**")
-            .permitAll()
-                .antMatchers(HttpMethod.GET, API_PATH + "/**").hasAnyRole("ADMIN", "API_READ", "API_WRITE")
-                .antMatchers(HttpMethod.POST, API_PATH + "/**").hasAnyRole("ADMIN", "API_WRITE")
-                .antMatchers(HttpMethod.PATCH, API_PATH + "/**").hasAnyRole("ADMIN", "API_WRITE")
-                .antMatchers(HttpMethod.DELETE, API_PATH + "/**").hasAnyRole("ADMIN", "API_WRITE")
-//                .antMatchers(API_PATH + "/**").hasRole("ADMIN")
+                .antMatchers(AUTH + "/register/**")
+                    .hasAuthority(RoleValue.ROLE_ADMIN.name())
+                .antMatchers(AUTH + "/**")
+                    .permitAll()
+                .antMatchers(HttpMethod.GET, API_PATH + "/**")
+                    .hasAnyAuthority(RoleValue.ROLE_ADMIN.name(), RoleValue.ROLE_API_READ.name(), RoleValue.ROLE_API_WRITE.name())
+                .antMatchers(HttpMethod.POST, API_PATH + "/**")
+                    .hasAnyAuthority(RoleValue.ROLE_ADMIN.name(), RoleValue.ROLE_API_WRITE.name())
+                .antMatchers(HttpMethod.PATCH, API_PATH + "/**")
+                    .hasAnyAuthority(RoleValue.ROLE_ADMIN.name(), RoleValue.ROLE_API_WRITE.name())
+                .antMatchers(HttpMethod.DELETE, API_PATH + "/**")
+                    .hasAnyAuthority(RoleValue.ROLE_ADMIN.name(), RoleValue.ROLE_API_WRITE.name())
             .anyRequest().authenticated()
         .and()
             .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)

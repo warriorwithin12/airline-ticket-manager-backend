@@ -38,7 +38,7 @@ public class Passenger extends BaseModel {
     @JsonIgnoreProperties("passengers")
     private Flight flight;
 
-    @OneToMany(mappedBy = "ticketOwner")
+    @OneToMany(mappedBy = "ticketOwner", fetch = FetchType.EAGER)
     @JsonIgnoreProperties("ticketOwner")
     private Collection<AirTicket> boardingTickets;
 }

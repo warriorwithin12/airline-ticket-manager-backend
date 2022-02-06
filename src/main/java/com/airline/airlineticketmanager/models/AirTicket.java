@@ -29,6 +29,7 @@ public class AirTicket extends BaseModel {
     private UUID reservationId;
 
     @ManyToOne
+    @JsonIgnoreProperties("boardingTickets")
     private Passenger ticketOwner;
 
     @Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
