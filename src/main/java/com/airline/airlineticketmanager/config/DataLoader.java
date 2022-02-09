@@ -60,6 +60,9 @@ public class DataLoader implements ApplicationRunner {
             this.loadAirlines();
             this.loadPlanes();
         }
+        else {
+            this.loadRoleValues();
+        }
     }
 
     private void createUsers(){
@@ -211,5 +214,14 @@ public class DataLoader implements ApplicationRunner {
             throw new Exception("Cannot retreive all Airlines created before. Exiting.");
         }
 
+    }
+
+    /**
+     * Load the role values to RoleValue dynamic enum class.
+     */
+    private void loadRoleValues(){
+        this.roleRepository.findAll().forEach(role -> {
+            RoleValue.putValue(role.getName());
+        });
     }
 }

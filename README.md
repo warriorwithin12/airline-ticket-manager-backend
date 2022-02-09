@@ -42,6 +42,7 @@
  - [ ] Securización:
     - OAuth2
     - Google Auth
-- [ ] Add parent entity to REST responses:
-    - Field Success/Unsuccess
-    - Error handling
+ - [ ] Add parent entity to REST responses:
+     - Field Success/Unsuccess
+     - Error handling
+ - [ ] Docker

@@ -13,15 +13,22 @@ import java.util.Map;
 @ToString @EqualsAndHashCode
 public final class RoleValue implements Comparable<RoleValue> {
 
+    // Preload roles to work like Enum
     public static final RoleValue ROLE_ADMIN = new RoleValue("ADMIN");
     public static final RoleValue ROLE_USER = new RoleValue("USER");
     public static final RoleValue ROLE_API = new RoleValue("API");
     public static final RoleValue ROLE_API_READ = new RoleValue("API_READ");
     public static final RoleValue ROLE_API_WRITE = new RoleValue("API_WRITE");
 
+    // String representation of Role
     private final String name;
+    // The Spring Security role preffix
+    private static final String preffix = "ROLE_";
+
+    // A collection of all Roles loaded
     private static final Map<String, RoleValue> map = new LinkedHashMap<>();
 
+    // Initialize defined roles in constant fields
     static {
         loadClassData();
     }
@@ -67,7 +74,7 @@ public final class RoleValue implements Comparable<RoleValue> {
      * @param name The String representation of role.
      */
     private RoleValue(String name){
-        this.name = "ROLE_"+ name;
+        this.name = preffix + name;
     }
 
     /**
@@ -78,7 +85,7 @@ public final class RoleValue implements Comparable<RoleValue> {
      * @throws IllegalArgumentException if no RoleValue exists with name specified.
      */
     public static RoleValue valueOf(String name) {
-        RoleValue roleValue = map.get(name);
+        RoleValue roleValue = map.get(preffix + name);
         if (roleValue == null) {
             throw new IllegalArgumentException("No RoleValue by the name " + name + " found");
         }

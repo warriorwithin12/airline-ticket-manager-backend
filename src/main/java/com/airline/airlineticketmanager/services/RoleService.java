@@ -1,7 +1,6 @@
 package com.airline.airlineticketmanager.services;
 
 import com.airline.airlineticketmanager.models.auth.Role;
-import com.airline.airlineticketmanager.models.auth.RoleValue;
 import com.airline.airlineticketmanager.repositories.RoleRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +11,6 @@ public class RoleService extends BaseService<Role, Long, RoleRepository> {
         super(repository);
     }
     public Role getRoleByName(String name){
-        return this.repository.findByName(RoleValue.valueOf(name));
+        return this.repository.findByName(name);
     }
 }
