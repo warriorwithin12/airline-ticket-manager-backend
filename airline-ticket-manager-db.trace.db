@@ -1,0 +1,630 @@
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIR_TICKET (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPLEMENTS DECIMAL(7,2), PURCHASED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP, RESERVATION_ID BINARY(255), SEAT VARCHAR(4) NOT NULL, TAXES DECIMAL(7,2), TERMINAL VARCHAR(2) NOT NULL, TOTAL_AMOUNT DECIMAL(7,2) NOT NULL, TICKET_OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table air_ticket (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, complements decimal(7,2), purchased_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, reservation_id binary(255), seat varchar(4) not null, taxes decimal(7,2), terminal varchar(2) not null, total_amount decimal(7,2) not null, ticket_owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIRLINE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPANY VARCHAR(255) NOT NULL, COMPANY_NAME VARCHAR(255), COUNTRY VARCHAR(255) NOT NULL, COUNTRY_CODE VARCHAR(2) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table airline (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, company varchar(255) not null, company_name varchar(255), country varchar(255) not null, country_code varchar(2) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLIGHT (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ARRIVAL VARCHAR(3) NOT NULL, ARRIVAL_DATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, DATE DATE NOT NULL, DEPARTURE VARCHAR(3) NOT NULL, DEPARTURE_DATE_TIME DATETIME(6) NOT NULL, FLIGHT_CODE VARCHAR(6) NOT NULL, MODIFIED_DATE_TIME DATETIME(6), STATUS VARCHAR(255) NOT NULL, PLANE_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table flight (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, arrival varchar(3) not null, arrival_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, date date not null, departure varchar(3) not null, departure_date_time datetime(6) not null, flight_code varchar(6) not null, modified_date_time datetime(6), status varchar(255) not null, plane_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PASSENGER (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ADDRESS VARCHAR(255), CODE VARCHAR(255), EMAIL VARCHAR(255), FIRST_NAME VARCHAR(255), LAST_NAME VARCHAR(255), FLIGHT_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table passenger (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, address varchar(255), code varchar(255), email varchar(255), first_name varchar(255), last_name varchar(255), flight_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLANE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, CAPACITY INTEGER NOT NULL, CAPACITY_TYPE VARCHAR(255), MODEL VARCHAR(255) NOT NULL, OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table plane (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, capacity integer not null, capacity_type varchar(255), model varchar(255) not null, owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ROLES (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, NAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table roles (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, name varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USER_ROLES (USER_ID BIGINT NOT NULL, ROLE_ID BIGINT NOT NULL, PRIMARY KEY (USER_ID, ROLE_ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table user_roles (user_id bigint not null, role_id bigint not null, primary key (user_id, role_id)) engine=InnoDB [42001-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USERS (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ACCOUNT_EXPIRED BIT NOT NULL, ACCOUNT_LOCKED BIT NOT NULL, CREDENTIALS_EXPIRED BIT NOT NULL, EMAIL VARCHAR(255) NOT NULL, ENABLED BIT NOT NULL, PASSWORD VARCHAR(255) NOT NULL, USERNAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table users (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, account_expired bit not null, account_locked bit not null, credentials_expired bit not null, email varchar(255) not null, enabled bit not null, password varchar(255) not null, username varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIRLINE" not found; SQL statement:
+alter table airline add constraint UK_3ekma2pw5sws5ies8s1w1ic01 unique (company) [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint UK_j7j29duht4oswo8ylojjd5x1f unique (flight_code) [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint UK_oa28fqne8e21lcaj76esowld3 unique (code) [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email) [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username) [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket add constraint FK144j0cyeim1duo26uexo7p651 foreign key (ticket_owner_id) references passenger (id) [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint FK7p9fvp6d7uh9cgn47uet8a8nb foreign key (plane_id) references plane (id) [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint FKr5a1oojukm72i234yfsm7qmfs foreign key (flight_id) references flight (id) [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane add constraint FKunlxks5ekrvcesjasp2xs3hj foreign key (owner_id) references airline (id) [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (id) [42102-200]
+2022-02-09 13:39:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKhfh9dx7w3ubf1co1vdev94g3f foreign key (user_id) references users (id) [42102-200]
+2022-02-09 13:39:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 13:39:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 13:39:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 13:39:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 13:39:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 13:39:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIR_TICKET (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPLEMENTS DECIMAL(7,2), PURCHASED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP, RESERVATION_ID BINARY(255), SEAT VARCHAR(4) NOT NULL, TAXES DECIMAL(7,2), TERMINAL VARCHAR(2) NOT NULL, TOTAL_AMOUNT DECIMAL(7,2) NOT NULL, TICKET_OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table air_ticket (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, complements decimal(7,2), purchased_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, reservation_id binary(255), seat varchar(4) not null, taxes decimal(7,2), terminal varchar(2) not null, total_amount decimal(7,2) not null, ticket_owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIRLINE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPANY VARCHAR(255) NOT NULL, COMPANY_NAME VARCHAR(255), COUNTRY VARCHAR(255) NOT NULL, COUNTRY_CODE VARCHAR(2) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table airline (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, company varchar(255) not null, company_name varchar(255), country varchar(255) not null, country_code varchar(2) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLIGHT (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ARRIVAL VARCHAR(3) NOT NULL, ARRIVAL_DATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, DATE DATE NOT NULL, DEPARTURE VARCHAR(3) NOT NULL, DEPARTURE_DATE_TIME DATETIME(6) NOT NULL, FLIGHT_CODE VARCHAR(6) NOT NULL, MODIFIED_DATE_TIME DATETIME(6), STATUS VARCHAR(255) NOT NULL, PLANE_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table flight (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, arrival varchar(3) not null, arrival_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, date date not null, departure varchar(3) not null, departure_date_time datetime(6) not null, flight_code varchar(6) not null, modified_date_time datetime(6), status varchar(255) not null, plane_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PASSENGER (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ADDRESS VARCHAR(255), CODE VARCHAR(255), EMAIL VARCHAR(255), FIRST_NAME VARCHAR(255), LAST_NAME VARCHAR(255), FLIGHT_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table passenger (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, address varchar(255), code varchar(255), email varchar(255), first_name varchar(255), last_name varchar(255), flight_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLANE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, CAPACITY INTEGER NOT NULL, CAPACITY_TYPE VARCHAR(255), MODEL VARCHAR(255) NOT NULL, OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table plane (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, capacity integer not null, capacity_type varchar(255), model varchar(255) not null, owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ROLES (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, NAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table roles (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, name varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USER_ROLES (USER_ID BIGINT NOT NULL, ROLE_ID BIGINT NOT NULL, PRIMARY KEY (USER_ID, ROLE_ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table user_roles (user_id bigint not null, role_id bigint not null, primary key (user_id, role_id)) engine=InnoDB [42001-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USERS (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ACCOUNT_EXPIRED BIT NOT NULL, ACCOUNT_LOCKED BIT NOT NULL, CREDENTIALS_EXPIRED BIT NOT NULL, EMAIL VARCHAR(255) NOT NULL, ENABLED BIT NOT NULL, PASSWORD VARCHAR(255) NOT NULL, USERNAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table users (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, account_expired bit not null, account_locked bit not null, credentials_expired bit not null, email varchar(255) not null, enabled bit not null, password varchar(255) not null, username varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIRLINE" not found; SQL statement:
+alter table airline add constraint UK_3ekma2pw5sws5ies8s1w1ic01 unique (company) [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint UK_j7j29duht4oswo8ylojjd5x1f unique (flight_code) [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint UK_oa28fqne8e21lcaj76esowld3 unique (code) [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email) [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username) [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket add constraint FK144j0cyeim1duo26uexo7p651 foreign key (ticket_owner_id) references passenger (id) [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint FK7p9fvp6d7uh9cgn47uet8a8nb foreign key (plane_id) references plane (id) [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint FKr5a1oojukm72i234yfsm7qmfs foreign key (flight_id) references flight (id) [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane add constraint FKunlxks5ekrvcesjasp2xs3hj foreign key (owner_id) references airline (id) [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (id) [42102-200]
+2022-02-09 13:41:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKhfh9dx7w3ubf1co1vdev94g3f foreign key (user_id) references users (id) [42102-200]
+2022-02-09 13:41:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 13:41:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 13:41:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 13:41:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 13:41:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 13:41:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIR_TICKET (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPLEMENTS DECIMAL(7,2), PURCHASED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP, RESERVATION_ID BINARY(255), SEAT VARCHAR(4) NOT NULL, TAXES DECIMAL(7,2), TERMINAL VARCHAR(2) NOT NULL, TOTAL_AMOUNT DECIMAL(7,2) NOT NULL, TICKET_OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table air_ticket (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, complements decimal(7,2), purchased_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, reservation_id binary(255), seat varchar(4) not null, taxes decimal(7,2), terminal varchar(2) not null, total_amount decimal(7,2) not null, ticket_owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIRLINE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPANY VARCHAR(255) NOT NULL, COMPANY_NAME VARCHAR(255), COUNTRY VARCHAR(255) NOT NULL, COUNTRY_CODE VARCHAR(2) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table airline (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, company varchar(255) not null, company_name varchar(255), country varchar(255) not null, country_code varchar(2) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLIGHT (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ARRIVAL VARCHAR(3) NOT NULL, ARRIVAL_DATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, DATE DATE NOT NULL, DEPARTURE VARCHAR(3) NOT NULL, DEPARTURE_DATE_TIME DATETIME(6) NOT NULL, FLIGHT_CODE VARCHAR(6) NOT NULL, MODIFIED_DATE_TIME DATETIME(6), STATUS VARCHAR(255) NOT NULL, PLANE_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table flight (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, arrival varchar(3) not null, arrival_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, date date not null, departure varchar(3) not null, departure_date_time datetime(6) not null, flight_code varchar(6) not null, modified_date_time datetime(6), status varchar(255) not null, plane_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PASSENGER (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ADDRESS VARCHAR(255), CODE VARCHAR(255), EMAIL VARCHAR(255), FIRST_NAME VARCHAR(255), LAST_NAME VARCHAR(255), FLIGHT_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table passenger (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, address varchar(255), code varchar(255), email varchar(255), first_name varchar(255), last_name varchar(255), flight_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLANE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, CAPACITY INTEGER NOT NULL, CAPACITY_TYPE VARCHAR(255), MODEL VARCHAR(255) NOT NULL, OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table plane (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, capacity integer not null, capacity_type varchar(255), model varchar(255) not null, owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ROLES (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, NAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table roles (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, name varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USER_ROLES (USER_ID BIGINT NOT NULL, ROLE_ID BIGINT NOT NULL, PRIMARY KEY (USER_ID, ROLE_ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table user_roles (user_id bigint not null, role_id bigint not null, primary key (user_id, role_id)) engine=InnoDB [42001-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USERS (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ACCOUNT_EXPIRED BIT NOT NULL, ACCOUNT_LOCKED BIT NOT NULL, CREDENTIALS_EXPIRED BIT NOT NULL, EMAIL VARCHAR(255) NOT NULL, ENABLED BIT NOT NULL, PASSWORD VARCHAR(255) NOT NULL, USERNAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table users (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, account_expired bit not null, account_locked bit not null, credentials_expired bit not null, email varchar(255) not null, enabled bit not null, password varchar(255) not null, username varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIRLINE" not found; SQL statement:
+alter table airline add constraint UK_3ekma2pw5sws5ies8s1w1ic01 unique (company) [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint UK_j7j29duht4oswo8ylojjd5x1f unique (flight_code) [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint UK_oa28fqne8e21lcaj76esowld3 unique (code) [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email) [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username) [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket add constraint FK144j0cyeim1duo26uexo7p651 foreign key (ticket_owner_id) references passenger (id) [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint FK7p9fvp6d7uh9cgn47uet8a8nb foreign key (plane_id) references plane (id) [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint FKr5a1oojukm72i234yfsm7qmfs foreign key (flight_id) references flight (id) [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane add constraint FKunlxks5ekrvcesjasp2xs3hj foreign key (owner_id) references airline (id) [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (id) [42102-200]
+2022-02-09 13:43:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKhfh9dx7w3ubf1co1vdev94g3f foreign key (user_id) references users (id) [42102-200]
+2022-02-09 13:44:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 13:44:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 13:44:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 13:44:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 13:44:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 13:44:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIR_TICKET (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPLEMENTS DECIMAL(7,2), PURCHASED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP, RESERVATION_ID BINARY(255), SEAT VARCHAR(4) NOT NULL, TAXES DECIMAL(7,2), TERMINAL VARCHAR(2) NOT NULL, TOTAL_AMOUNT DECIMAL(7,2) NOT NULL, TICKET_OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table air_ticket (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, complements decimal(7,2), purchased_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, reservation_id binary(255), seat varchar(4) not null, taxes decimal(7,2), terminal varchar(2) not null, total_amount decimal(7,2) not null, ticket_owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIRLINE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPANY VARCHAR(255) NOT NULL, COMPANY_NAME VARCHAR(255), COUNTRY VARCHAR(255) NOT NULL, COUNTRY_CODE VARCHAR(2) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table airline (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, company varchar(255) not null, company_name varchar(255), country varchar(255) not null, country_code varchar(2) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLIGHT (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ARRIVAL VARCHAR(3) NOT NULL, ARRIVAL_DATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, DATE DATE NOT NULL, DEPARTURE VARCHAR(3) NOT NULL, DEPARTURE_DATE_TIME DATETIME(6) NOT NULL, FLIGHT_CODE VARCHAR(6) NOT NULL, MODIFIED_DATE_TIME DATETIME(6), STATUS VARCHAR(255) NOT NULL, PLANE_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table flight (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, arrival varchar(3) not null, arrival_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, date date not null, departure varchar(3) not null, departure_date_time datetime(6) not null, flight_code varchar(6) not null, modified_date_time datetime(6), status varchar(255) not null, plane_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PASSENGER (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ADDRESS VARCHAR(255), CODE VARCHAR(255), EMAIL VARCHAR(255), FIRST_NAME VARCHAR(255), LAST_NAME VARCHAR(255), FLIGHT_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table passenger (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, address varchar(255), code varchar(255), email varchar(255), first_name varchar(255), last_name varchar(255), flight_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLANE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, CAPACITY INTEGER NOT NULL, CAPACITY_TYPE VARCHAR(255), MODEL VARCHAR(255) NOT NULL, OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table plane (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, capacity integer not null, capacity_type varchar(255), model varchar(255) not null, owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ROLES (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, NAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table roles (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, name varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USER_ROLES (USER_ID BIGINT NOT NULL, ROLE_ID BIGINT NOT NULL, PRIMARY KEY (USER_ID, ROLE_ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table user_roles (user_id bigint not null, role_id bigint not null, primary key (user_id, role_id)) engine=InnoDB [42001-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USERS (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ACCOUNT_EXPIRED BIT NOT NULL, ACCOUNT_LOCKED BIT NOT NULL, CREDENTIALS_EXPIRED BIT NOT NULL, EMAIL VARCHAR(255) NOT NULL, ENABLED BIT NOT NULL, PASSWORD VARCHAR(255) NOT NULL, USERNAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table users (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, account_expired bit not null, account_locked bit not null, credentials_expired bit not null, email varchar(255) not null, enabled bit not null, password varchar(255) not null, username varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIRLINE" not found; SQL statement:
+alter table airline add constraint UK_3ekma2pw5sws5ies8s1w1ic01 unique (company) [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint UK_j7j29duht4oswo8ylojjd5x1f unique (flight_code) [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint UK_oa28fqne8e21lcaj76esowld3 unique (code) [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email) [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username) [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket add constraint FK144j0cyeim1duo26uexo7p651 foreign key (ticket_owner_id) references passenger (id) [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint FK7p9fvp6d7uh9cgn47uet8a8nb foreign key (plane_id) references plane (id) [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint FKr5a1oojukm72i234yfsm7qmfs foreign key (flight_id) references flight (id) [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane add constraint FKunlxks5ekrvcesjasp2xs3hj foreign key (owner_id) references airline (id) [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (id) [42102-200]
+2022-02-09 14:15:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKhfh9dx7w3ubf1co1vdev94g3f foreign key (user_id) references users (id) [42102-200]
+2022-02-09 14:15:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 14:15:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 14:15:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 14:15:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 14:15:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 14:15:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIR_TICKET (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPLEMENTS DECIMAL(7,2), PURCHASED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP, RESERVATION_ID BINARY(255), SEAT VARCHAR(4) NOT NULL, TAXES DECIMAL(7,2), TERMINAL VARCHAR(2) NOT NULL, TOTAL_AMOUNT DECIMAL(7,2) NOT NULL, TICKET_OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table air_ticket (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, complements decimal(7,2), purchased_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, reservation_id binary(255), seat varchar(4) not null, taxes decimal(7,2), terminal varchar(2) not null, total_amount decimal(7,2) not null, ticket_owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIRLINE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPANY VARCHAR(255) NOT NULL, COMPANY_NAME VARCHAR(255), COUNTRY VARCHAR(255) NOT NULL, COUNTRY_CODE VARCHAR(2) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table airline (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, company varchar(255) not null, company_name varchar(255), country varchar(255) not null, country_code varchar(2) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLIGHT (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ARRIVAL VARCHAR(3) NOT NULL, ARRIVAL_DATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, DATE DATE NOT NULL, DEPARTURE VARCHAR(3) NOT NULL, DEPARTURE_DATE_TIME DATETIME(6) NOT NULL, FLIGHT_CODE VARCHAR(6) NOT NULL, MODIFIED_DATE_TIME DATETIME(6), STATUS VARCHAR(255) NOT NULL, PLANE_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table flight (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, arrival varchar(3) not null, arrival_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, date date not null, departure varchar(3) not null, departure_date_time datetime(6) not null, flight_code varchar(6) not null, modified_date_time datetime(6), status varchar(255) not null, plane_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PASSENGER (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ADDRESS VARCHAR(255), CODE VARCHAR(255), EMAIL VARCHAR(255), FIRST_NAME VARCHAR(255), LAST_NAME VARCHAR(255), FLIGHT_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table passenger (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, address varchar(255), code varchar(255), email varchar(255), first_name varchar(255), last_name varchar(255), flight_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLANE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, CAPACITY INTEGER NOT NULL, CAPACITY_TYPE VARCHAR(255), MODEL VARCHAR(255) NOT NULL, OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table plane (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, capacity integer not null, capacity_type varchar(255), model varchar(255) not null, owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ROLES (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, NAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table roles (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, name varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USER_ROLES (USER_ID BIGINT NOT NULL, ROLE_ID BIGINT NOT NULL, PRIMARY KEY (USER_ID, ROLE_ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table user_roles (user_id bigint not null, role_id bigint not null, primary key (user_id, role_id)) engine=InnoDB [42001-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USERS (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ACCOUNT_EXPIRED BIT NOT NULL, ACCOUNT_LOCKED BIT NOT NULL, CREDENTIALS_EXPIRED BIT NOT NULL, EMAIL VARCHAR(255) NOT NULL, ENABLED BIT NOT NULL, PASSWORD VARCHAR(255) NOT NULL, USERNAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table users (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, account_expired bit not null, account_locked bit not null, credentials_expired bit not null, email varchar(255) not null, enabled bit not null, password varchar(255) not null, username varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIRLINE" not found; SQL statement:
+alter table airline add constraint UK_3ekma2pw5sws5ies8s1w1ic01 unique (company) [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint UK_j7j29duht4oswo8ylojjd5x1f unique (flight_code) [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint UK_oa28fqne8e21lcaj76esowld3 unique (code) [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email) [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username) [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket add constraint FK144j0cyeim1duo26uexo7p651 foreign key (ticket_owner_id) references passenger (id) [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint FK7p9fvp6d7uh9cgn47uet8a8nb foreign key (plane_id) references plane (id) [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint FKr5a1oojukm72i234yfsm7qmfs foreign key (flight_id) references flight (id) [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane add constraint FKunlxks5ekrvcesjasp2xs3hj foreign key (owner_id) references airline (id) [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (id) [42102-200]
+2022-02-09 14:16:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKhfh9dx7w3ubf1co1vdev94g3f foreign key (user_id) references users (id) [42102-200]
+2022-02-09 14:16:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 14:16:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 14:16:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 14:16:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 14:16:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 14:16:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIR_TICKET (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPLEMENTS DECIMAL(7,2), PURCHASED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP, RESERVATION_ID BINARY(255), SEAT VARCHAR(4) NOT NULL, TAXES DECIMAL(7,2), TERMINAL VARCHAR(2) NOT NULL, TOTAL_AMOUNT DECIMAL(7,2) NOT NULL, TICKET_OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table air_ticket (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, complements decimal(7,2), purchased_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, reservation_id binary(255), seat varchar(4) not null, taxes decimal(7,2), terminal varchar(2) not null, total_amount decimal(7,2) not null, ticket_owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIRLINE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPANY VARCHAR(255) NOT NULL, COMPANY_NAME VARCHAR(255), COUNTRY VARCHAR(255) NOT NULL, COUNTRY_CODE VARCHAR(2) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table airline (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, company varchar(255) not null, company_name varchar(255), country varchar(255) not null, country_code varchar(2) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLIGHT (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ARRIVAL VARCHAR(3) NOT NULL, ARRIVAL_DATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, DATE DATE NOT NULL, DEPARTURE VARCHAR(3) NOT NULL, DEPARTURE_DATE_TIME DATETIME(6) NOT NULL, FLIGHT_CODE VARCHAR(6) NOT NULL, MODIFIED_DATE_TIME DATETIME(6), STATUS VARCHAR(255) NOT NULL, PLANE_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table flight (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, arrival varchar(3) not null, arrival_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, date date not null, departure varchar(3) not null, departure_date_time datetime(6) not null, flight_code varchar(6) not null, modified_date_time datetime(6), status varchar(255) not null, plane_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PASSENGER (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ADDRESS VARCHAR(255), CODE VARCHAR(255), EMAIL VARCHAR(255), FIRST_NAME VARCHAR(255), LAST_NAME VARCHAR(255), FLIGHT_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table passenger (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, address varchar(255), code varchar(255), email varchar(255), first_name varchar(255), last_name varchar(255), flight_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLANE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, CAPACITY INTEGER NOT NULL, CAPACITY_TYPE VARCHAR(255), MODEL VARCHAR(255) NOT NULL, OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table plane (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, capacity integer not null, capacity_type varchar(255), model varchar(255) not null, owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ROLES (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, NAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table roles (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, name varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USER_ROLES (USER_ID BIGINT NOT NULL, ROLE_ID BIGINT NOT NULL, PRIMARY KEY (USER_ID, ROLE_ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table user_roles (user_id bigint not null, role_id bigint not null, primary key (user_id, role_id)) engine=InnoDB [42001-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USERS (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ACCOUNT_EXPIRED BIT NOT NULL, ACCOUNT_LOCKED BIT NOT NULL, CREDENTIALS_EXPIRED BIT NOT NULL, EMAIL VARCHAR(255) NOT NULL, ENABLED BIT NOT NULL, PASSWORD VARCHAR(255) NOT NULL, USERNAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table users (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, account_expired bit not null, account_locked bit not null, credentials_expired bit not null, email varchar(255) not null, enabled bit not null, password varchar(255) not null, username varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIRLINE" not found; SQL statement:
+alter table airline add constraint UK_3ekma2pw5sws5ies8s1w1ic01 unique (company) [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint UK_j7j29duht4oswo8ylojjd5x1f unique (flight_code) [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint UK_oa28fqne8e21lcaj76esowld3 unique (code) [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email) [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username) [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket add constraint FK144j0cyeim1duo26uexo7p651 foreign key (ticket_owner_id) references passenger (id) [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint FK7p9fvp6d7uh9cgn47uet8a8nb foreign key (plane_id) references plane (id) [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint FKr5a1oojukm72i234yfsm7qmfs foreign key (flight_id) references flight (id) [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane add constraint FKunlxks5ekrvcesjasp2xs3hj foreign key (owner_id) references airline (id) [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (id) [42102-200]
+2022-02-09 14:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKhfh9dx7w3ubf1co1vdev94g3f foreign key (user_id) references users (id) [42102-200]
+2022-02-09 14:17:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket drop foreign key FK144j0cyeim1duo26uexo7p651 [42102-200]
+2022-02-09 14:17:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop foreign key FK7p9fvp6d7uh9cgn47uet8a8nb [42102-200]
+2022-02-09 14:17:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop foreign key FKr5a1oojukm72i234yfsm7qmfs [42102-200]
+2022-02-09 14:17:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane drop foreign key FKunlxks5ekrvcesjasp2xs3hj [42102-200]
+2022-02-09 14:17:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6 [42102-200]
+2022-02-09 14:17:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIR_TICKET (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPLEMENTS DECIMAL(7,2), PURCHASED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP, RESERVATION_ID BINARY(255), SEAT VARCHAR(4) NOT NULL, TAXES DECIMAL(7,2), TERMINAL VARCHAR(2) NOT NULL, TOTAL_AMOUNT DECIMAL(7,2) NOT NULL, TICKET_OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table air_ticket (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, complements decimal(7,2), purchased_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, reservation_id binary(255), seat varchar(4) not null, taxes decimal(7,2), terminal varchar(2) not null, total_amount decimal(7,2) not null, ticket_owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE AIRLINE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, COMPANY VARCHAR(255) NOT NULL, COMPANY_NAME VARCHAR(255), COUNTRY VARCHAR(255) NOT NULL, COUNTRY_CODE VARCHAR(2) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table airline (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, company varchar(255) not null, company_name varchar(255), country varchar(255) not null, country_code varchar(2) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLIGHT (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ARRIVAL VARCHAR(3) NOT NULL, ARRIVAL_DATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, DATE DATE NOT NULL, DEPARTURE VARCHAR(3) NOT NULL, DEPARTURE_DATE_TIME DATETIME(6) NOT NULL, FLIGHT_CODE VARCHAR(6) NOT NULL, MODIFIED_DATE_TIME DATETIME(6), STATUS VARCHAR(255) NOT NULL, PLANE_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table flight (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, arrival varchar(3) not null, arrival_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, date date not null, departure varchar(3) not null, departure_date_time datetime(6) not null, flight_code varchar(6) not null, modified_date_time datetime(6), status varchar(255) not null, plane_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PASSENGER (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ADDRESS VARCHAR(255), CODE VARCHAR(255), EMAIL VARCHAR(255), FIRST_NAME VARCHAR(255), LAST_NAME VARCHAR(255), FLIGHT_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table passenger (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, address varchar(255), code varchar(255), email varchar(255), first_name varchar(255), last_name varchar(255), flight_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE PLANE (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, CAPACITY INTEGER NOT NULL, CAPACITY_TYPE VARCHAR(255), MODEL VARCHAR(255) NOT NULL, OWNER_ID BIGINT, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table plane (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, capacity integer not null, capacity_type varchar(255), model varchar(255) not null, owner_id bigint, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ROLES (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, NAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table roles (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, name varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USER_ROLES (USER_ID BIGINT NOT NULL, ROLE_ID BIGINT NOT NULL, PRIMARY KEY (USER_ID, ROLE_ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table user_roles (user_id bigint not null, role_id bigint not null, primary key (user_id, role_id)) engine=InnoDB [42001-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USERS (ID BIGINT NOT NULL AUTO_INCREMENT, CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, MODIFIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, ACCOUNT_EXPIRED BIT NOT NULL, ACCOUNT_LOCKED BIT NOT NULL, CREDENTIALS_EXPIRED BIT NOT NULL, EMAIL VARCHAR(255) NOT NULL, ENABLED BIT NOT NULL, PASSWORD VARCHAR(255) NOT NULL, USERNAME VARCHAR(255) NOT NULL, PRIMARY KEY (ID)) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+create table users (id bigint not null auto_increment, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null, account_expired bit not null, account_locked bit not null, credentials_expired bit not null, email varchar(255) not null, enabled bit not null, password varchar(255) not null, username varchar(255) not null, primary key (id)) engine=InnoDB [42001-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIRLINE" not found; SQL statement:
+alter table airline drop index UK_3ekma2pw5sws5ies8s1w1ic01 [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIRLINE" not found; SQL statement:
+alter table airline add constraint UK_3ekma2pw5sws5ies8s1w1ic01 unique (company) [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight drop index UK_j7j29duht4oswo8ylojjd5x1f [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint UK_j7j29duht4oswo8ylojjd5x1f unique (flight_code) [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger drop index UK_oa28fqne8e21lcaj76esowld3 [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint UK_oa28fqne8e21lcaj76esowld3 unique (code) [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users drop index UK_6dotkott2kjsp8vw4d0m25fb7 [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email) [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users drop index UK_r43af9ap4edm43mmtq01oddj6 [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+alter table users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username) [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AIR_TICKET" not found; SQL statement:
+alter table air_ticket add constraint FK144j0cyeim1duo26uexo7p651 foreign key (ticket_owner_id) references passenger (id) [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLIGHT" not found; SQL statement:
+alter table flight add constraint FK7p9fvp6d7uh9cgn47uet8a8nb foreign key (plane_id) references plane (id) [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSENGER" not found; SQL statement:
+alter table passenger add constraint FKr5a1oojukm72i234yfsm7qmfs foreign key (flight_id) references flight (id) [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLANE" not found; SQL statement:
+alter table plane add constraint FKunlxks5ekrvcesjasp2xs3hj foreign key (owner_id) references airline (id) [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (id) [42102-200]
+2022-02-09 14:18:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER_ROLES" not found; SQL statement:
+alter table user_roles add constraint FKhfh9dx7w3ubf1co1vdev94g3f foreign key (user_id) references users (id) [42102-200]

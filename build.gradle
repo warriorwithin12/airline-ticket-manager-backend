@@ -29,11 +29,15 @@ dependencies {
     implementation 'com.github.fge:json-patch:1.9'
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
 
-    compileOnly 'org.projectlombok:lombok'
+//    compileOnly 'org.projectlombok:lombok'
+//    testCompileOnly 'org.projectlombok:lombok'
+//    providedRuntime 'org.projectlombok:lombok' // run & test
+    providedCompile 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 //    runtimeOnly 'com.h2database:h2'
     runtimeOnly 'mysql:mysql-connector-java:8.0.27'
-    annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'

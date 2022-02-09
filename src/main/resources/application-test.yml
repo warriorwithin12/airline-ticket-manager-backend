@@ -3,3 +3,8 @@ spring:
         hibernate:
             ddl-auto: create-drop
         show-sql: false
+logging:
+    level:
+        com.airline.airlineticketmanager: info
+        root: error
+customProp: hello world
