@@ -13,5 +13,4 @@ public class RoleService extends BaseService<Role, Long, RoleRepository> {
     public Role getRoleByName(String name){
         return this.repository.findByName(name);
     }
-    public String sayHello(){ return "Hello!"; }
 }

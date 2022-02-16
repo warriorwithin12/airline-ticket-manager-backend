@@ -2,13 +2,12 @@ package com.airline.airlineticketmanager.repositories;
 
 import com.airline.airlineticketmanager.models.Flight;
 import com.airline.airlineticketmanager.models.FlightStatus;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.Date;
 
-public interface FlightRepository extends JpaRepository<Flight, Long> {
+public interface FlightRepository extends BaseModelRepository<Flight, Long> {
 
     Iterable<Flight> findAllByDate(Date date);
     Iterable<Flight> findAllByModifiedDateTime(Date date);

@@ -5,6 +5,7 @@ import com.airline.airlineticketmanager.models.auth.RoleValue;
 import com.airline.airlineticketmanager.repositories.RoleRepository;
 import com.airline.airlineticketmanager.services.RoleService;
 import lombok.extern.log4j.Log4j2;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -43,20 +44,26 @@ public class RoleCRUDTest {
     @Mock
     private RoleRepository roleRepository;
 
+    Date now;
+
+    @BeforeAll
+    public void globalSetup(){
+        this.now = new Date();
+    }
+
     @BeforeEach
     public void setUp() {
         Role admin = Role.builder().id(1L).name("ROLE_ADMIN").build();
         Role test = Role.builder().name("ROLE_TEST").build();
-        Role testCreated = Role.builder().id(2L).name("ROLE_TEST").createdAt(new Date()).modifiedAt(new Date()).build();
+        Role testCreated = Role.builder().id(2L).name("ROLE_TEST").createdAt(now).modifiedAt(now).build();
+        Role testModified = Role.builder().id(2L).name("ROLE_TESTTT").createdAt(now).modifiedAt(new Date()).build();
         // Init mocks methods
         MockitoAnnotations.openMocks(this);
-        Mockito.when(service.getRoleByName("ROLE_ADMIN")).thenReturn(admin);
-        Mockito.when(service.create(any(Role.class))).thenReturn(testCreated); //.thenAnswer(r -> RoleValue.putValue(r.get));
-
-        log.debug(service.getRoleByName("ROLE_ADMIN"));
-        log.debug(service.create(test));
-        log.debug("CUSTOM PROP: "+ customProp);
-        log.debug("OTHER: "+ other);
+        Mockito.lenient().when(service.getRoleByName(admin.getName())).thenReturn(admin);
+        Mockito.lenient().when(service.getRoleByName(test.getName())).thenReturn(test);
+        Mockito.lenient().when(service.update(any(Role.class))).thenReturn(testModified);
+        Mockito.lenient().when(service.create(any(Role.class))).thenReturn(testCreated); //.thenAnswer(r -> RoleValue.putValue(r.get));
+        Mockito.lenient().when(service.delete(2L)).thenReturn(testModified); //.thenAnswer(r -> RoleValue.putValue(r.get));
     }
 
     @Test
@@ -67,21 +74,34 @@ public class RoleCRUDTest {
     }
 
     @Test
-    public void whenNewRoleCreated_thenRoleValueCreated(){
+    public void whenNewRoleCreated_thenCheckConstraints(){
         Role test = Role.builder().name("ROLE_TEST").build();
-        Role expected = Role.builder().id(2L).name("ROLE_TEST").createdAt(new Date()).modifiedAt(new Date()).build();
+        Role expected = Role.builder().id(2L).name("ROLE_TEST").createdAt(this.now).modifiedAt(this.now).build();
         Role created = service.create(test);
-//        log.info("Created: {}", created);
         // Check new object fields
         assertThat(created).hasNoNullFieldsOrProperties();
         assertThat(created).hasFieldOrProperty("id");
-        assertThat(created.getId()).isEqualTo(expected.getId());
-        assertThat(created.getName()).isEqualTo(expected.getName());
-        // Check RoleValue DEnum
-        RoleValue newDEnum = RoleValue.valueOf("TEST");
-        assertThat(newDEnum).isNotNull();
-        assertThat(created.getName()).isEqualTo(newDEnum.getName());
+        assertThat(created).usingRecursiveComparison().isEqualTo(expected);
     }
+
+    @Test
+    public void whenRoleModified_existsRole(){
+        Role test = Role.builder().id(2L).name("ROLE_TESTTT").build();
+        Role before = service.getRoleByName("ROLE_TEST");
+        assertThat(before).isNotNull();
+        Role after = service.update(test);
+        assertThat(after).isNotNull();
+        assertThat(after).usingRecursiveComparison().ignoringFields("modifiedAt").isEqualTo(test);
+    }
+
+    public void whenRoleDeleted_roleDeletedReturned(){
+        Role test = Role.builder().id(2L).name("ROLE_TESTTT").build();
+        Role deleted = service.delete(2L);
+        assertThat(deleted).isNotNull();
+        assertThat(deleted).usingRecursiveComparison()
+    }
+
+
 
 //    @Test
 //    public void givenEmployees_whenGetEmployees_thenStatus200()
